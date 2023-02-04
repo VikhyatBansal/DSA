@@ -54,59 +54,32 @@ static boolean isBST(Node root) {
     }
     return true;
 }
-static int max_level = 0;
+static int upper_level = 0;
+
 
 static void rightSide(Node node, int level)
-    {
-        // Base Case
-        if (node == null)
-            return;
- 
-        // If this is the first node of its level
-        if (max_level < level) {
-            System.out.print(node.data + " ");
-            max_level = level;
-        }
- 
-        // Recur for left and right subtrees
-        rightSide(node.right, level + 1 );
-        rightSide(node.left, level + 1);
-    }
-
-    static void rightView()
-    {
-        max_level = 0;
-        rightSide(root, 1);
-    }
-
-
-static void leftSide(Node node, int level)
 {
     // Base Case
     if (node == null)
         return;
 
     // If this is the first node of its level
-    if (max_level < level) {
+    if (upper_level < level) {
         System.out.print(node.data + " ");
-        max_level = level;
+        upper_level = level;
     }
 
     // Recur for left and right subtrees
-    leftSide(node.left, level + 1); 
-    leftSide(node.right, level + 1);
-    
+    rightSide(node.right, level + 1 );
+    rightSide(node.left, level + 1);
 }
 
-// A wrapper over leftViewUtil()
-static void leftView()
+static void rightView()
 {
-    max_level = 0;
-    leftSide(root, 1);
+    upper_level = 0;
+    rightSide(root, 1);
 }
-   
- 
-// Driver code
+
 public static void main(String args[])
 {
     root = new Node(100);
@@ -130,17 +103,10 @@ public static void main(String args[])
     root.left.left.right.left.left = new Node(33);
     
  
-    // System.out.print("Inorder traversal " 
-    //                );
-    // inorderTraversal(root);
-    // System.out.println();
     System.out.println("Is the tree a BST? " + isBST(root));
-    System.out.println("Left subtree");
-    leftView();
-    System.out.println();
-    System.out.println("Right subtree");
+    System.out.println("Right nodes");
     rightView();
- 
+
 }
 }
 

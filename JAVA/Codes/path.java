@@ -13,7 +13,6 @@ static class Node
         right = null;
     }
 }
- 
 static Node root;
 static Node node = root;
  
@@ -28,8 +27,7 @@ static Node node = root;
 		}
 		
 	}
-    
-    
+      
 static boolean isBST(Node root) {
     if (root == null) {
         return true;
@@ -48,16 +46,12 @@ static boolean isBST(Node root) {
 
 //Display all the paths from root to leaf
 
-static void printPaths(Node node) {
+static void printPath(Node node) {
     int path[] = new int[1000];
-    printPathsRecur(node, path, 0);
+    printPathsRecurs(node, path, 0);
 }
 
-/* Recursive helper function -- given a node, and an array containing
- the path from the root node up to but not including this node,
- print out all the root-leaf paths. */
-
-static void printPathsRecur(Node node, int path[], int pathLen) {
+static void printPathsRecurs(Node node, int path[], int pathLen) {
     if (node == null)
         return;
 
@@ -67,19 +61,19 @@ static void printPathsRecur(Node node, int path[], int pathLen) {
 
     /* it's a leaf, so print the path that led to here */
     if (node.left == null && node.right == null)
-        printArray(path, pathLen);
+        printArr(path, pathLen);
     else {
         /* otherwise try both subtrees */
-        printPathsRecur(node.left, path, pathLen);
-        printPathsRecur(node.right, path, pathLen);
+        printPathsRecurs(node.left, path, pathLen);
+        printPathsRecurs(node.right, path, pathLen);
     }
 }
 
 /* Utility that prints out an array on a line. */
-static void printArray(int ints[], int len) {
+static void printArr(int integ[], int len) {
     int i;
     for (i = 0; i < len; i++) {
-        System.out.print(ints[i] + " ");
+        System.out.print(integ[i] + " ");
     }
     System.out.println("");
     System.out.println();
@@ -106,17 +100,9 @@ public static void main(String[] args) {
     root.left.left.right.left.right = new Node(37);
     root.left.left.right.left.left = new Node(33);
     
- 
-    // System.out.print("Inorder traversal " 
-    //                );
-    // inorderTraversal(root);
-    // System.out.println();
-    System.out.println("Is the tree a BST? " + isBST(root));
     System.out.println("All the paths from root to leaf are: ");
-    printPaths(root);
+    printPath(root);
 
     
 }
-   
- 
 }

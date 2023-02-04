@@ -46,15 +46,27 @@ public class BST {
 
     public static void main(String[] args) {
         BST tree = new BST();
-        tree.insert(50);
-        tree.insert(30);
-        tree.insert(20);
-        tree.insert(40);
-        tree.insert(70);
+        tree.insert(150);
+        tree.insert(100);
+        tree.insert(200);
+        tree.insert(75);
+        tree.insert(125);
+        tree.insert(175);
+        tree.insert(250);
         tree.insert(60);
+        tree.insert(90);
+        tree.insert(110);
+        tree.insert(130);
+        tree.insert(170);
+        tree.insert(190);
+        tree.insert(225);
+        tree.insert(300);
+        tree.insert(30);
+        tree.insert(70);
         tree.insert(80);
-        tree.inorder();
-        
-        
+        tree.insert(95);
+
+        System.out.println("Inorder traversal of the given tree");
+        tree.inorder();       
     }    
 }

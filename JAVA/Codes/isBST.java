@@ -60,11 +60,7 @@ public static void main(String args[])
     root.left.left = new Node(2);
     root.left.right = new Node(4);
     root.right = new Node(7);
-    
- 
-    System.out.print("Inorder traversal ");
-    inorderTraversal(root);
-    System.out.println();
+
     System.out.println("Is the tree a BST? " + isBST(root));
  
 }
